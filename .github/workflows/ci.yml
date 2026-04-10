@@ -6,15 +6,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: uptime
-        run: uptime
+      - name: checkout code
+        uses: actions/checkout@v4
 
-      - name: Number processor
-        run: nproc
+      - name: Build image
+        run: docker build -t ester713/ciportfolio .
 
-  test:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: hello
-        run: echo hello
+      - name: list images
+        run: docker images

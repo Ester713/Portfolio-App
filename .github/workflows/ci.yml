@@ -42,6 +42,6 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            docker rm -f portfolio || echo "Container not found, skipping removal."
+            docker rm -f portfolio || echo "Container not found, skipping removal now."
             docker pull ${{ secrets.DOCKER_USERNAME }}/portfolio-app:latest
             docker run -d --name portfolio -p 8080:80 ${{ secrets.DOCKER_USERNAME }}/portfolio-app:latest
